@@ -1,54 +1,15 @@
-# .
+# JS: The Gathering
+This is the start of an application journey that combines my newfound love of
+the beloved card game Magic: The Gathering with my love of programming. Right
+now, it is not much. But the goal is to flesh it out into something that could
+be useful for me in the future. Perhaps a "view your decks" application.
 
-This template should help get you started developing with Vue 3 in Vite.
+One day, I may want to build out an actual Magic game-playing application that
+will actually use web sockets to simulate a real-life game. That is far in the
+future.
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-bun install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-bun dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-bun run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-bun test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-bun lint
-```
+## Vue
+This is my first time building an application in Vue. I have spent a decent amount
+of time in frameworks like React and Svelte, and I have used Angular for work. But
+I haven't used Vue, and I've heard so many great things about it. So I am starting
+simple. No meta frameworks, just Vue.
