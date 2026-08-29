@@ -14,7 +14,7 @@ export default function tryParseEnv() {
             const issues = err.issues.map((iss) => {
                 return iss.path;
             });
-            const message = `missing values in .env file: ${issues.join(', ')}`;
+            const message = `missing values in .env file:\n${issues.join(', ')}`;
             const newError = new Error(message);
             newError.stack = '';
             throw newError;
