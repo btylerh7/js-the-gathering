@@ -1,4 +1,4 @@
-import tryParseEnv from './shared/env';
+import tryParseEnv from './server/utils/env';
 
 tryParseEnv();
 // https://nuxt.com/docs/api/configuration/nuxt-config
