@@ -1,7 +1,7 @@
 import { int, text, camelCase } from 'drizzle-orm/sqlite-core';
 import { user } from './auth';
 
-export const timestamps = {
+const timestamps = {
     createdAt: int()
         .notNull()
         .$default(() => Date.now()),

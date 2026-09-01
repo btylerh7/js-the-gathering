@@ -1,5 +1,15 @@
 import { int, text, camelCase } from 'drizzle-orm/sqlite-core';
-import { deck, timestamps } from './deck';
+import { deck } from './deck';
+
+const timestamps = {
+    createdAt: int()
+        .notNull()
+        .$default(() => Date.now()),
+    updatedAt: int()
+        .notNull()
+        .$default(() => Date.now())
+        .$onUpdate(() => Date.now()),
+};
 
 export const card = camelCase.table('card', {
     id: int().primaryKey({ autoIncrement: true }),

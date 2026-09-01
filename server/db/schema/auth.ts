@@ -2,11 +2,20 @@ import { relations } from 'drizzle-orm/_relations';
 import {
     sqliteTable,
     text,
+    int,
     integer,
     index,
     uniqueIndex,
 } from 'drizzle-orm/sqlite-core';
-import { timestamps } from './deck';
+const timestamps = {
+    createdAt: int()
+        .notNull()
+        .$default(() => Date.now()),
+    updatedAt: int()
+        .notNull()
+        .$default(() => Date.now())
+        .$onUpdate(() => Date.now()),
+};
 
 export const user = sqliteTable('user', {
     id: text().primaryKey(),

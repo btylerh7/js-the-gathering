@@ -28,17 +28,19 @@ async function getCardInfo() {
 }
 </script>
 <template>
-	<h1>View Magic Cards!</h1>
-	<p>Very simple card viewer right now. Woo.</p>
-	<div class="card-selector">
-		<label for="set">Set: <input type="text" id="set" name="set" v-model="setInput"></label>
-		<label for="number">Number: <input type="text" id="number" name="number" v-model="numberInput"></label>
-		<button @click="getCardInfo()">Add</button>
-	</div>
-	<Spinner v-if="loadingCard" />
-	<div class="card-display">
-		<Card v-for="card in deck" :imageUrl="card.imageUri" :name="card.name" />
-	</div>
+	<main>
+		<h1>View Magic Cards!</h1>
+		<p>Very simple card viewer right now. Woo.</p>
+		<div class="card-selector">
+			<label for="set">Set: <input type="text" id="set" name="set" v-model="setInput"></label>
+			<label for="number">Number: <input type="text" id="number" name="number" v-model="numberInput"></label>
+			<button @click="getCardInfo()">Add</button>
+		</div>
+		<Spinner v-if="loadingCard" />
+		<div class="card-display">
+			<Card v-for="card in deck" :imageUrl="card.imageUri" :name="card.name" />
+		</div>
+	</main>
 </template>
 <style scoped>
 .card-selector {
