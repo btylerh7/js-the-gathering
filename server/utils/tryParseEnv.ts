@@ -1,14 +1,11 @@
-import { z, ZodError } from 'zod';
+import { ZodError, ZodObject, ZodRawShape } from 'zod';
 
-const EnvSchema = z.object({
-    NODE_ENV: z.string(),
-});
-
-export type EnvSchema = z.infer<typeof EnvSchema>;
-
-export default function tryParseEnv() {
+export default function tryParseEnv<T extends ZodRawShape>(
+    EnvSchema: ZodObject<T>,
+    buildEnv: Record<string, string | undefined> = process.env
+) {
     try {
-        EnvSchema.parse(process.env);
+        EnvSchema.parse(buildEnv);
     } catch (err) {
         if (err instanceof ZodError) {
             const issues = err.issues.map((iss) => {

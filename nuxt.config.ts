@@ -1,6 +1,5 @@
-import tryParseEnv from './shared/env';
+import { defineNuxtConfig } from 'nuxt/config';
 
-tryParseEnv();
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
