@@ -1,1 +1,2 @@
-export * from './decks.ts';
+export * from './deck.ts';
+export * from './card.ts';
