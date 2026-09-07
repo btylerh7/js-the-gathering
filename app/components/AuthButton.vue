@@ -6,15 +6,24 @@ defineProps({
 const email = ref("");
 const password = ref("");
 const name = ref("");
-async function signIn() {
+async function signIn(e: Event) {
+	e.preventDefault();
 	await authClient.signIn.email({
 		email: email.value,
 		password: password.value,
 		callbackURL: "/"
+	}, {
+		onSuccess: (_ctx) => {
+			navigateTo("/")
+		},
+		onError: (ctx) => {
+			alert(ctx.error.message)
+		}
 	})
 
 }
-async function signUp() {
+async function signUp(e: Event) {
+	e.preventDefault();
 	await authClient.signUp.email({
 		email: email.value,
 		password: password.value,
@@ -23,6 +32,9 @@ async function signUp() {
 	}, {
 		onError: (ctx) => {
 			alert(ctx.error.message)
+		},
+		onSuccess: (_ctx) => {
+			navigateTo("/")
 		}
 	})
 
@@ -43,8 +55,8 @@ async function signUp() {
 			Password
 			<input type="text" name="password" id="password" v-model="password" />
 		</label>
-		<button v-if="newUser == false" @click="signIn()">Sign In</button>
-		<button v-if="newUser == true" @click="signUp()">Sign Up</button>
+		<button type="button" v-if="newUser == false" @click="signIn">Sign In</button>
+		<button type="button" v-if="newUser == true" @click="signUp">Sign Up</button>
 	</form>
 </template>
 <style scoped>

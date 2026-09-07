@@ -1,4 +1,4 @@
-import { int, text, camelCase } from 'drizzle-orm/sqlite-core';
+import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { deck } from './deck';
 
 const timestamps = {
@@ -11,7 +11,7 @@ const timestamps = {
         .$onUpdate(() => Date.now()),
 };
 
-export const card = camelCase.table('card', {
+export const card = sqliteTable('card', {
     id: int().primaryKey({ autoIncrement: true }),
     deckId: int()
         .notNull()

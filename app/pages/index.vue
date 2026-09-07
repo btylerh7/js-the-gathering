@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { authClient } from '#shared/auth-client';
 export interface MagicCard {
 	name: string;
 	imageUri: string;
@@ -6,6 +7,7 @@ export interface MagicCard {
 	setNumber: number;
 
 }
+const session = authClient.useSession();
 const deck = ref<MagicCard[]>([]);
 const setInput = ref("");
 const numberInput = ref("");
@@ -31,6 +33,7 @@ async function getCardInfo() {
 	<main>
 		<h1>View Magic Cards!</h1>
 		<p>Very simple card viewer right now. Woo.</p>
+		<p v-if="session.data">Hello, {{ session.data.user.name }}</p>
 		<div class="card-selector">
 			<label for="set">Set: <input type="text" id="set" name="set" v-model="setInput"></label>
 			<label for="number">Number: <input type="text" id="number" name="number" v-model="numberInput"></label>
