@@ -1,7 +1,17 @@
-import { int, text, camelCase } from 'drizzle-orm/sqlite-core';
-import { deck, timestamps } from './deck';
+import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { deck } from './deck';
 
-export const card = camelCase.table('card', {
+const timestamps = {
+    createdAt: int()
+        .notNull()
+        .$default(() => Date.now()),
+    updatedAt: int()
+        .notNull()
+        .$default(() => Date.now())
+        .$onUpdate(() => Date.now()),
+};
+
+export const card = sqliteTable('card', {
     id: int().primaryKey({ autoIncrement: true }),
     deckId: int()
         .notNull()

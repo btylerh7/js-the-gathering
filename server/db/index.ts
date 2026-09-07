@@ -1,4 +1,5 @@
 import { drizzle } from 'drizzle-orm/libsql';
+import { authRelations } from './schema';
 import env from '../utils/env';
 
 const db = drizzle({
@@ -7,5 +8,6 @@ const db = drizzle({
         authToken:
             env.NODE_ENV == 'development' ? undefined : env.TURSO_AUTH_TOKEN,
     },
+    relations: { ...authRelations },
 });
 export default db;
