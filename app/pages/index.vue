@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { authClient } from '#shared/auth-client';
+import { useAuthStore } from '~/stores/authStore';
 
-const session = authClient.useSession();
+const authStore = useAuthStore();
 
 </script>
 <template>
-	<div v-if="session.data">
-		<h1>{{ session.data.user.name }}'s Decks</h1>
+	<div v-if="authStore.user">
+		<h1>{{ authStore.user.name }}'s Decks</h1>
 	</div>
 	<div v-else=>
 		<h1>Deck Builder</h1>
