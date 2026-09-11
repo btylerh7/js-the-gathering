@@ -1,43 +1,19 @@
 <script setup lang="ts">
-import { authClient } from '#shared/auth-client';
+import { useAuthStore } from '~/stores/authStore';
 defineProps({
 	newUser: Boolean
 });
+const authStore = useAuthStore();
 const email = ref("");
 const password = ref("");
 const name = ref("");
 async function signIn(e: Event) {
 	e.preventDefault();
-	await authClient.signIn.email({
-		email: email.value,
-		password: password.value,
-		callbackURL: "/"
-	}, {
-		onSuccess: (_ctx) => {
-			navigateTo("/")
-		},
-		onError: (ctx) => {
-			alert(ctx.error.message)
-		}
-	})
-
+	await authStore.signIn(email.value, password.value);
 }
 async function signUp(e: Event) {
 	e.preventDefault();
-	await authClient.signUp.email({
-		email: email.value,
-		password: password.value,
-		name: name.value,
-		callbackURL: "/"
-	}, {
-		onError: (ctx) => {
-			alert(ctx.error.message)
-		},
-		onSuccess: (_ctx) => {
-			navigateTo("/")
-		}
-	})
-
+	await authStore.signUp(name.value, email.value, password.value);
 }
 
 </script>
