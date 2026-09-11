@@ -6,26 +6,38 @@ const session = authClient.useSession();
 </script>
 <template>
 	<nav>
-		<NuxtLink to="/">Home</NuxtLink>
-		<NuxtLink v-if="!session.data" to="/sign-in">Sign In</NuxtLink>
-		<p v-if="session.data">Hi, {{ session.data.user.name }}</p>
-		<button v-if="session.data" @click="authClient.signOut()">Sign Out</button>
+		<div>
+			<NuxtLink to="/">Home</NuxtLink>
+			<NuxtLink v-if="!session.data" to="/sign-in">Sign In</NuxtLink>
+			<p v-if="session.data">Hi, {{ session.data.user.name }}</p>
+			<button v-if="session.data" @click="authClient.signOut()">Sign Out</button>
+		</div>
 	</nav>
 </template>
 
 <style scoped>
 nav {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	gap: 1em;
-	padding-block: 1em;
-	max-width: 90vw;
-	font-size: 1.25rem;
+	background: var(--theme-color);
+	color: white;
+	font-weight: 600;
+
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 1em;
+		max-width: 90vw;
+		padding-block: 0.5em;
+	}
 
 }
 
 a {
 	text-decoration: none;
+	color: white;
+
+	&:visited {
+		color: white;
+	}
 }
 </style>
