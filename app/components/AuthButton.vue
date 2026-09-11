@@ -53,10 +53,12 @@ async function signUp(e: Event) {
 		</label>
 		<label for="password">
 			Password
-			<input type="text" name="password" id="password" v-model="password" />
+			<input type="password" name="password" id="password" v-model="password" />
 		</label>
 		<button type="button" v-if="newUser == false" @click="signIn">Sign In</button>
 		<button type="button" v-if="newUser == true" @click="signUp">Sign Up</button>
+		<NuxtLink to="/sign-in" v-if="newUser">Already have an account? Sign In</NuxtLink>
+		<NuxtLink to="/sign-up" v-if="!newUser">Don't have an account? Sign Up</NuxtLink>
 	</form>
 </template>
 <style scoped>
