@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import { Navbar } from '#components';
+import { useAuthStore } from '~/stores/authStore';
+
+const authStore = useAuthStore();
+
+// Rest of page will not render until this promise resolves
+await authStore.init();
 
 </script>
 
