@@ -7,4 +7,5 @@ const authStore = useAuthStore();
 	<header v-if="authStore.user">
 		<h1>{{ authStore.user.name }}'s Decks</h1>
 	</header>
+	<button @click="navigateTo('/add-deck')" type="button">Add Deck</button>
 </template>
