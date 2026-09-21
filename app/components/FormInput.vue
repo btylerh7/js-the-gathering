@@ -6,15 +6,19 @@ const { label, name } = defineProps<{
 
 </script>
 <template>
-	<div>
+	<div class="form-input">
 		<label :for="name">{{ label }}</label>
 		<slot />
 	</div>
 </template>
 
-<style scoped>
-div {
+<style>
+.form-input {
 	display: flex;
 	gap: 1rem;
+}
+
+.invalid {
+	outline: 1px solid crimson;
 }
 </style>

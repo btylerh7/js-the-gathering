@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { ButtonHTMLAttributes } from 'vue';
+
 const { onClick, href } = defineProps<{
 	onClick?: ((payload: PointerEvent) => void) | undefined,
-	href?: string
+	href?: string,
+	type?: "button" | "submit" | "reset" | undefined
 }>();
 
 function createClickHandler() {
@@ -16,7 +19,7 @@ const handleClick = createClickHandler();
 
 </script>
 <template>
-	<button @click="handleClick">
+	<button :type="type" @click="handleClick">
 		<slot />
 	</button>
 </template>
