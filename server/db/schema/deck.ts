@@ -15,6 +15,7 @@ export const deck = sqliteTable('deck', {
     id: int().primaryKey({ autoIncrement: true }),
     name: text().notNull(),
     description: text(),
+    format: text().notNull().$type<Format>(),
     userId: int()
         .notNull()
         .references(() => user.id),
