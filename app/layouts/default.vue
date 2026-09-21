@@ -18,12 +18,16 @@ await authStore.init();
 <style>
 :root {
 	--theme-color: hsl(255 50 50);
+	--background: white;
+	--text-color: black;
 	box-sizing: border-box;
 }
 
 body {
 	padding: 0;
 	margin: 0;
+	background: var(--background);
+	color: var(--text-color);
 }
 
 main {
