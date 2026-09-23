@@ -1,6 +1,7 @@
 import { int, text, sqliteTable } from 'drizzle-orm/sqlite-core';
 import { user } from './auth';
 import { createInsertSchema } from 'drizzle-orm/zod';
+import { number } from 'zod';
 
 const timestamps = {
     createdAt: int()
@@ -17,6 +18,7 @@ export const deck = sqliteTable('deck', {
     name: text().notNull(),
     description: text(),
     format: text().notNull().$type<Format>(),
+    commanderBracket: int().$type<1 | 2 | 3 | 4 | 5>(),
     userId: int()
         .notNull()
         .references(() => user.id),
@@ -29,6 +31,7 @@ export const InsertDeck = createInsertSchema(deck, {
         field.refine((input) =>
             FormatList.some((format) => format.value == input)
         ),
+    // commanderBracket: (field) => f
 }).omit({
     id: true,
     updatedAt: true,

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import '~/assets/css/main.css';
 import { Navbar } from '#components';
 import { useAuthStore } from '~/stores/authStore';
 
@@ -15,24 +16,3 @@ await authStore.init();
 		<slot />
 	</main>
 </template>
-<style>
-:root {
-	--theme-color: hsl(255 50 50);
-	--background: white;
-	--text-color: black;
-	box-sizing: border-box;
-}
-
-body {
-	padding: 0;
-	margin: 0;
-	background: var(--background);
-	color: var(--text-color);
-}
-
-main {
-	margin: auto;
-	display: grid;
-	place-content: center;
-}
-</style>
