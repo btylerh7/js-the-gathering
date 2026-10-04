@@ -17,7 +17,7 @@ export const card = sqliteTable('card', {
         .notNull()
         .references(() => deck.id),
     scryfallId: text(),
-    color: text().notNull().$type<'R' | 'W' | 'U' | 'B' | 'G'>(),
+    color: text().notNull(),
     imageUri: text(),
     name: text().notNull(),
     description: text(),
